@@ -569,8 +569,7 @@ async def scrape_task(style_ids: list[str]) -> None:
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
+    return templates.TemplateResponse(request, "index.html")
 
 @app.post("/upload")
 async def upload_and_start(file: UploadFile = File(...)):
